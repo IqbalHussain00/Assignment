@@ -1,0 +1,27 @@
+
+<h1>
+    Hello, This is assignment
+</h1>
+
+    {% if request.user.is_authenticated %}
+    <div>
+        <form action='logout/' method='post'>
+            {% csrf_token %}
+            <button type='submit'>Logout</button>
+        </form>
+      </div>
+
+    {% else %}
+    <div>
+      <form action='login/' method='post'>
+          {% csrf_token %}
+          <button type='submit'>Login</button>
+      </form>
+    </div>
+    <div>
+        <form action='register/' method='post'>
+            {% csrf_token %}
+            <button type='submit'>Register</button>
+        </form>
+      </div>
+      {% endif %}
